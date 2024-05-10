@@ -27,6 +27,8 @@
 
     <!-- Template Stylesheet -->
     <link href="~/css/style.css" rel="stylesheet">
+	@RenderSection("Scripts", required: false)
+
 </head>
 <body>
 	<!-- Spinner Start -->
@@ -57,8 +59,7 @@
 				</button>
 				<div class="collapse navbar-collapse bg-white" id="navbarCollapse">
 					<div class="navbar-nav mx-auto">
-@* 						<a href="index.html" class="nav-item nav-link active">Home</a>
- *@						<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+				        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 
 						<a asp-controller="HangHoa" asp-action="Index" class="nav-item nav-link">Shop</a>
 						<a asp-controller="KhachHang" asp-action="DangKy" class="nav-item nav-link">Register an account</a>
@@ -97,8 +98,8 @@
 				</div>
 				<div class="modal-body d-flex align-items-center">
 					<div class="input-group w-75 mx-auto d-flex">
-						<input id="searchText" type="search" class="form-control p-3" placeholder="keywords" aria-describedby="seachButton">
-						<span id="seachButton" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+						<input id="searchText" type="search" class="form-control p-3" placeholder="keywords" aria-describedby="searchButton">
+						<span id="searchButton" class="input-group-text p-3"><i class="fa fa-search"></i></span>
 					</div>
 				</div>
 			</div>
@@ -126,6 +127,15 @@
 
     <!-- Template Javascript -->
     <script src="~/js/main.js"></script>
+	@RenderSection("Scripts", required: false)
 
+	<script>
+		$(document).ready(function () {
+			$("searchButton").click(function () {
+				let url = `/HangHoa/Search?query=` + $("#searchText").val();
+				window.location.href = url;
+			})
+		});
+	</script>
 </body>
 </html>

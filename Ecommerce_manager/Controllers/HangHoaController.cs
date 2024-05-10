@@ -39,10 +39,10 @@ namespace Ecommerce_manager.Controllers
 		{
 			var hangHoas = pro_db.HangHoas.AsQueryable();
 
-			if (query != null)
+			if (query != null)//nếu khác null
 			{
 				hangHoas = hangHoas.Where(p => p.TenHh.Contains(query));
-			}
+			}//tìm theo tên hàng hóa
 
 			var result = hangHoas.Select(p => new HangHoaVM
 			{
@@ -64,7 +64,7 @@ namespace Ecommerce_manager.Controllers
 				.SingleOrDefault(p => p.MaHh == id);
 			if (data == null)
 			{
-				TempData["Message"] = $"Không thấy sản phẩm có mã {id}";
+				TempData["Message"] = $"Không tìm thấy sản phẩm có mã {id}";
 				return Redirect("/404");
 			}
 
@@ -77,10 +77,11 @@ namespace Ecommerce_manager.Controllers
 				Hinh = data.Hinh ?? string.Empty,
 				MoTaNgan = data.MoTaDonVi ?? string.Empty,
 				TenLoai = data.MaLoaiNavigation.TenLoai,
-				SoLuongTon = 10,//check sau
-				DiemDanhGia = 5,//check sau
+				SoLuongTon = 10,//check later
+				DiemDanhGia = 5,//check later
 			};
 			return View(result);
 		}
+
 	}
 }

@@ -7,8 +7,11 @@
 <div class="container-fluid page-header py-5">
 	<h1 class="text-center text-white display-6">Shop Detail</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
-		<li class="breadcrumb-item"><a href="#">Home</a></li>
+		<li class="breadcrumb-item"><a href="/">Home</a></li>
 		<li class="breadcrumb-item"><a href="#">Hàng hóa</a></li>
+		<li class="breadcrumb-item">
+			<a class="nav-link text-dark" asp-area="" asp-controller="HangHoa" asp-action="Index">Products</a>
+		</li>
 		<li class="breadcrumb-item active text-white">@Model.TenHH</li>
 	</ol>
 </div>
@@ -22,7 +25,8 @@
 					<div class="col-lg-6">
 						<div class="border rounded">
 							<a asp-action="Detail" asp-route-id="@Model.MaHh">
-								<img src="~/Hinh/HangHoa/@Model.Hinh" class="img-fluid rounded" alt="@Model.TenHH">
+								<img src="~/Hinh/Hinh/HangHoa/@Model.Hinh" class="img-fluid rounded" alt="@Model.TenHH">
+
 							</a>
 						</div>
 					</div>
@@ -168,7 +172,7 @@
 			<div class="col-lg-4 col-xl-3">
 				<div class="row g-4 fruite">
 					<div class="col-lg-12">
-						@await Html.PartialAsync("_TimKiemPanel")
+						@await Html.PartialAsync("_View_Search_Panel")
 						@await Component.InvokeAsync("MenuLoai")
 					</div>
 					<div class="col-lg-12">
