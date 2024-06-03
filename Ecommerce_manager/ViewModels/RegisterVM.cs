@@ -2,8 +2,9 @@
 
 namespace Ecommerce_manager.ViewModels
 {
-	public class RegisterVM
-	{
+   
+    public class RegisterVM
+	{// lấy qua ViewModel
 		[Key]
 		[Display(Name = "Tên đăng nhập")]
 		[Required(ErrorMessage = "*")]
@@ -21,7 +22,7 @@ namespace Ecommerce_manager.ViewModels
 		[MaxLength(50, ErrorMessage = "Tối đa 50 kí tự")]
 		public string HoTen { get; set; }
 
-		public bool GioiTinh { get; set; } = true;
+		public bool GioiTinh { get; set; }
 
 		[Display(Name ="Ngày sinh")]
 		[DataType(DataType.Date)]
@@ -33,7 +34,7 @@ namespace Ecommerce_manager.ViewModels
 
 		[Display(Name = "Điện thoại")]
 		[MaxLength(24, ErrorMessage = "Tối đa 24 kí tự")]
-		[RegularExpression(@"0[9875]\d{8}", ErrorMessage ="Chưa đúng định dạng di động Việt Nam")]
+		[RegularExpression(@"0[987543]\d{8}", ErrorMessage ="Chưa đúng định dạng di động Việt Nam")]
 		public string DienThoai { get; set; }
 
 
